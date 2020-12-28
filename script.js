@@ -7,12 +7,16 @@ async function selectMedia() {
         video.srcObject = mediaStreamDevice;
         video.onloadedmetadata = async () => {
             await video.play();
-            button.disabled = true;
-            video.requestPictureInPicture();
         }
     } catch (error) {
         console.log(error)
     }
 }
 
-button.addEventListener('click', selectMedia);
+button.addEventListener('click', async () => {
+    button.disabled = true;
+    await video.requestPictureInPicture();
+    button.disabled = false;
+});
+
+selectMedia();
