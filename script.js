@@ -1,21 +1,17 @@
 const video = document.getElementById('video');
-const button = document.getElementById('button');
+const shareButton = document.getElementById('share-button');
+const startButton = document.getElementById('start-button');
+const loader = document.getElementById('loader');
+startButton.disabled = true;
 
 async function selectMedia() {
     try {
         const mediaStreamDevice = await navigator.mediaDevices.getDisplayMedia();
         video.srcObject = mediaStreamDevice;
-        // video.requestPictureInPicture();
         video.onloadedmetadata = async () => {
             await video.play();
-            video.requestPictureInPicture();
-
-            // video.requestPictureInPicture();
+            startButton.disabled = false;
         }
-        // video.onloadedmetadata = startPictureInPicture();
-        // video.onplay = async () => {
-        //     video.requestPictureInPicture();
-        // }
     } catch (error) {
         console.log(error)
     }
@@ -27,15 +23,12 @@ async function selectMedia() {
 //     button.disabled = false;
 // });
 
-button.addEventListener('click', selectMedia);
+shareButton.addEventListener('click', selectMedia);
+startButton.addEventListener('click', startPictureInPicture);
 
 
 async function startPictureInPicture() {
-    await video.play();
-    if (video.play()) {
-        video.requestPictureInPicture();
-    } else {
-        startPictureInPicture();
-    }
+    startButton.disabled = true;
+    video.requestPictureInPicture();
 }
 // selectMedia();

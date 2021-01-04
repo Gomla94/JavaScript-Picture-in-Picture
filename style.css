@@ -12,8 +12,10 @@ body {
 .button-container {
     border: 2px solid black;
     border-radius: 7px;
-    padding: 10px;
+    padding: 10px 15px;
     box-shadow: inset 0px 20px 4px -19px rgba(255, 255, 255, 0.8);
+    justify-content: space-between;
+    
     /* box-shadow: in or out horizontal vertical blur spread color */
 }
 
@@ -31,10 +33,10 @@ body {
     box-shadow: inset 0px 20px 4px -19px rgba(255, 255, 255, 0.8), 0 12px 12px 0px rgba(0, 0, 0, 0.4);
     text-shadow: 0px 2px 4px black;
 } */
-button {
+.share-button {
     cursor: pointer;
     outline: none;
-    height: 75px;
+    height: 90px;
     width: 120px;
     border: 2px solid black;
     border-radius: 7px;
@@ -42,7 +44,24 @@ button {
     color: white;
     background: linear-gradient(to top, #696969, #575757);
     text-shadow: 0 2px 4px  black;
-    box-shadow:  inset 0 20px 4px -19px rgba(0, 0, 0, 0.4), 0 12px 12px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 20px 4px -19px rgba(0, 0, 0, 0.4), 0 12px 12px 0px rgba(0, 0, 0, 0.4);
+    float: left;
+    margin-right: 5px;
+}
+
+.start-button {
+    cursor: pointer;
+    outline: none;
+    height: 90px;
+    width: 120px;
+    border: 2px solid black;
+    border-radius: 7px;
+    font-size: 25px;
+    color: white;
+    background: linear-gradient(to top, #696969, #575757);
+    text-shadow: 0 2px 4px  black;
+    box-shadow: inset 0 20px 4px -19px rgba(0, 0, 0, 0.4), 0 12px 12px 0px rgba(0, 0, 0, 0.4);
+    margin-left: 5px;
 }
 
 button:hover {
