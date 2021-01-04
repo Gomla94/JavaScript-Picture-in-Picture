@@ -5,10 +5,17 @@ async function selectMedia() {
     try {
         const mediaStreamDevice = await navigator.mediaDevices.getDisplayMedia();
         video.srcObject = mediaStreamDevice;
-        // video.onloadedmetadata = async () => {
-        //     await video.play();
+        // video.requestPictureInPicture();
+        video.onloadedmetadata = async () => {
+            await video.play();
+            video.requestPictureInPicture();
+
+            // video.requestPictureInPicture();
+        }
+        // video.onloadedmetadata = startPictureInPicture();
+        // video.onplay = async () => {
+        //     video.requestPictureInPicture();
         // }
-        video.onloadedmetadata = startPictureInPicture();
     } catch (error) {
         console.log(error)
     }
