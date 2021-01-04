@@ -6,26 +6,17 @@ async function selectMedia() {
         const mediaStreamDevice = await navigator.mediaDevices.getDisplayMedia();
         video.srcObject = mediaStreamDevice;
         video.onloadedmetadata = async () => {
-            await startPictureInPicture();
+            await video.play();
         }
     } catch (error) {
         console.log(error)
     }
 }
 
-button.addEventListener('click', selectMedia);
-// button.addEventListener('click', selectMedia);
+button.addEventListener('click', async () => {
+    button.disabled = true;
+    await video.requestPictureInPicture();
+    button.disabled = false;
+});
 
-async function startPictureInPicture() {
-    // button.disabled = true;
-    await video.play();
-    video.requestPictureInPicture();
-    // button.disabled = false;
-}
-// button.addEventListener('click', async () => {
-//     button.disabled = true;
-//     await video.requestPictureInPicture();
-//     button.disabled = false;
-// });
-
-// selectMedia();
+selectMedia();
